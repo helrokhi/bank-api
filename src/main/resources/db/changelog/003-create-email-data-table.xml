@@ -1,0 +1,29 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="003" author="Elena_Yankovskaya">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="email_data"/>
+            </not>
+        </preConditions>
+        <createTable tableName="email_data">
+            <column name="id" type="UUID">
+                <constraints primaryKey="true" primaryKeyName="email_data_pkey" nullable="false" unique="true"/>
+            </column>
+            <column name="user_id" type="UUID"/>
+            <column name="email" type="VARCHAR(200)">
+                <constraints unique="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint
+                baseTableName="email_data"
+                baseColumnNames="user_id"
+                constraintName="fk_email_data_user_access"
+                referencedTableName="user_access"
+                referencedColumnNames="id"/>
+    </changeSet>
+</databaseChangeLog>

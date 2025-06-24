@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - include:
+      file: schema-init.yaml
+      relativeToChangelogFile: true
+
+  - include:
+      file: 001-create-user-access-table.xml
+      relativeToChangelogFile: true
+
+  - include:
+      file: 002-create-account-table.xml
+      relativeToChangelogFile: true
+
+  - include:
+      file: 003-create-email-data-table.xml
+      relativeToChangelogFile: true
+
+  - include:
+      file: 004-create-phone-data-table.xml
+      relativeToChangelogFile: true

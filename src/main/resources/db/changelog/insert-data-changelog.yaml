@@ -1,0 +1,16 @@
+databaseChangeLog:
+  - include:
+      file: 005-insert-user-access-table.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: 006-insert-account-table.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: 007-insert-email-data-table.sql
+      relativeToChangelogFile: true
+
+  - include:
+      file: 008-insert-phone-data-table.sql
+      relativeToChangelogFile: true

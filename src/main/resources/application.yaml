@@ -1,0 +1,28 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: bank-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ru_pro_bank_api
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+  liquibase:
+    change-log: classpath:/db/changelog/master.yaml
+
+jwt:
+  secret: "nH8g1l9R8f2+PjKdM2Xk5wE3bRzZ+qKJ8yLFO0VmV6Y="
+  header: "Authorization"
+  expiration: 3600
