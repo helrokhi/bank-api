@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    container_name: bank_api
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ru_pro_bank_api
+      PGDATE: =/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
